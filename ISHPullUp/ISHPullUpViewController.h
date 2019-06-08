@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// The suggested default minimumHeight for the bottomViewController.
 extern const CGFloat ISHPullUpViewControllerDefaultMinimumHeight;
 
+IB_DESIGNABLE
 @class ISHPullUpViewController;
 
 /**
@@ -177,7 +178,7 @@ typedef struct ISHPullUpAnimationConfiguration ISHPullUpAnimationConfiguration;
  *   Use the contentDelegate to adjust its layout for the area overlayed by
  *   the bottomViewController.
  */
-@property (nonatomic, nullable) UIViewController *contentViewController;
+@property (nonatomic, nullable) IBOutlet UIViewController *contentViewController;
 
 /**
  *   The bottomViewController is displayed at the bottom of this view controller
@@ -188,7 +189,7 @@ typedef struct ISHPullUpAnimationConfiguration ISHPullUpAnimationConfiguration;
  *
  *   Use the stateDelegate to receive information about state changes.
  */
-@property (nonatomic, nullable) UIViewController *bottomViewController;
+@property (nonatomic, nullable) IBOutlet UIViewController *bottomViewController;
 
 /// The layout mode to be used for the bottom view controller. Default is ISHPullUpBottomLayoutModeShift.
 @property (nonatomic) ISHPullUpBottomLayoutMode bottomLayoutMode;
@@ -209,14 +210,14 @@ typedef struct ISHPullUpAnimationConfiguration ISHPullUpAnimationConfiguration;
 
 /// The contentDelegate should be used to adjust the contentViewController's
 /// layout for the area overlayed by the bottomViewController.
-@property (nonatomic, nullable, weak) id<ISHPullUpContentDelegate> contentDelegate;
+@property (nonatomic, nullable, weak) IBOutlet id<ISHPullUpContentDelegate> contentDelegate;
 
 /// Use sizingDelegate to configure the minimum and maximum height of the bottomViewController.
 /// It can also be used to provide targetHeight steps for intermediate drag positions.
-@property (nonatomic, nullable, weak) id<ISHPullUpSizingDelegate> sizingDelegate;
+@property (nonatomic, nullable, weak) IBOutlet id<ISHPullUpSizingDelegate> sizingDelegate;
 
 /// The stateDelegate provides information about state changes.
-@property (nonatomic, nullable, weak) id<ISHPullUpStateDelegate> stateDelegate;
+@property (nonatomic, nullable, weak) IBOutlet id<ISHPullUpStateDelegate> stateDelegate;
 
 /// If YES the bottomViewController snaps to the top or bottom when dragging ends near one of the ends. Default is YES.
 @property (nonatomic) BOOL snapToEnds;
@@ -284,12 +285,12 @@ typedef struct ISHPullUpAnimationConfiguration ISHPullUpAnimationConfiguration;
 
 /// The color used for dimming the content.
 /// Set to nil to disable dimming. Default is black with 40% alpha.
-@property (nonatomic, nullable) UIColor *dimmingColor;
+@property (nonatomic, nullable) IBInspectable UIColor *dimmingColor;
 
 /// The threshold at which the content should be dimmed relative to the
 /// difference between minimum and maximum height. Default is 0.5 meaning
 /// that dimming will start half way between min and max height.
-@property (nonatomic) CGFloat dimmingThreshold;
+@property (nonatomic) CGFloat IBInspectable dimmingThreshold;
 
 /// Returns the current model value for the height of the bottomViewController.
 @property (nonatomic, readonly) CGFloat bottomHeight;
