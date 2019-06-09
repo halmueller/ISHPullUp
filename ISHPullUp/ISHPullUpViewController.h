@@ -285,7 +285,7 @@ typedef struct ISHPullUpAnimationConfiguration ISHPullUpAnimationConfiguration;
 
 /// The color used for dimming the content.
 /// Set to nil to disable dimming. Default is black with 40% alpha.
-@property (nonatomic, nullable) IBInspectable UIColor *dimmingColor;
+@property (nonatomic, nullable) UIColor *dimmingColor;
 
 /// The threshold at which the content should be dimmed relative to the
 /// difference between minimum and maximum height. Default is 0.5 meaning
